@@ -72,17 +72,17 @@ services:
     environment:
       - VIRTUAL_HOST=${ADMIN_HOST:?ADMIN_HOST is not set or empty}
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy:alpine
-    restart: always
-    ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-      - target: 443
-        published: 443
-        protocol: tcp
-    volumes:
-      - ./docker/nginx-proxy/certs:/etc/nginx/certs:ro
-      - ./docker/nginx-proxy/vhost.d:/etc/nginx/vhost.d:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+  # nginx-proxy:
+  #   image: jwilder/nginx-proxy:alpine
+  #   restart: always
+  #   ports:
+  #     - target: 80
+  #       published: 80
+  #       protocol: tcp
+  #     - target: 443
+  #       published: 443
+  #       protocol: tcp
+  #   volumes:
+  #     - ./docker/nginx-proxy/certs:/etc/nginx/certs:ro
+  #     - ./docker/nginx-proxy/vhost.d:/etc/nginx/vhost.d:ro
+  #     - /var/run/docker.sock:/tmp/docker.sock:ro
